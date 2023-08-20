@@ -15,7 +15,9 @@ void Timer_Init(void)
 	TIM_TimeBaseInitStruct.TIM_Prescaler = 7200;
 	TIM_TimeBaseInitStruct.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseInitStruct);
-
+	
+	TIM_ClearFlag(TIM2,TIM_FLAG_Update);
+	
 	TIM_ITConfig(TIM2,TIM_IT_Update,ENABLE);
 	
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
